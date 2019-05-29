@@ -1,0 +1,115 @@
+Date : 24-05-2019
+
+form partials
+use of helper method in views
+active record validation 2 types with examples
+saving of records without validation
+ model callbacks  with expalainataion
+
+-- Creating an object :
+
+
+    before_validation
+    after_validation
+    before_save
+    around_save
+    before_create
+    around_create
+    after_create
+    after_save
+    after_commit/after_rollback
+
+-- Updaing an object :
+
+
+    before_validation
+    after_validation
+    before_save
+    around_save
+    before_update
+    around_update
+    after_update
+    after_save
+    after_commit/after_rollback
+
+-- Destroying an object :
+
+
+    before_destroy
+    around_destroy
+    after_destroy
+    after_commit/after_rollback
+
+
+
+ scope in models with examples
+
+ --
+    scope is use to filter the datasets from the db . A name scope is simply a class method inside the model to retutn an active record association !!!..
+
+    Inside model --  scope :red, -> {where(color: 'red')}
+    Inside controller/index --  Book.all.red
+
+----------------------------
+
+Date : 27-05-2019
+
+
+where to use the present? (-)
+
+--
+    false.present? -> false
+    true.present? -> true
+    nil.present? ->false
+    "".present? -> false
+    " ".present? -> false
+
+    present will give the true value only when the object contains a valid value . i-e when book.title has a valid value , then book.title.present? will give true , otherwise give false.
+
+which values are considered true or false in ruby (-)
+
+
+-----------------------------
+
+Active Record associations ...
+
+Six type of active record associations ..
+
+1 : belongs_to
+2 : has_one
+3 : has_many
+4 : has_one through :associaion
+5 : has_many through :association
+6 : has_and_belongs_to_many (-)
+7 : self associations
+8 : Activemodel collection methods
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ validate :count_limits
+
+  private
+
+   def count_limits
+      if count > 4000
+        errors.add(:count  , "can not be above 4000 values")
+     elsif count <30
+        errors.add(:count , "can not beleow 20 values")
+      end
+    end

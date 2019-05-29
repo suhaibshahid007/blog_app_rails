@@ -1,0 +1,12 @@
+<h1>Books App</h1>
+
+<% @books.each do |book| %>
+  <h2><%= link_to book_title(book), {:action => 'show' , :id => book.id} %></h2>
+  <%= book_text(book)%>
+  <p><%= link_to 'Edit Book', edit_book_path(book) %> |
+  <%= link_to 'Delete Book', book, :confirm => 'Are you sure?', :method => :delete %>
+</p>
+<hr />
+<% end %>
+
+<%= link_to 'Add Book' , new_book_path %>
